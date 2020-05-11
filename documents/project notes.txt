@@ -1,0 +1,8 @@
+" If you wish to make an apple pie from scratch,
+  you must first invent the universe. "  -- carl sagan
+
+dsl:
+similar in scope to inform 7
+balance syntax and english keywords
+do not make is conversational english
+must be accessible to non-native speakers

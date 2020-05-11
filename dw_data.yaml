@@ -1,0 +1,1086 @@
+meta:
+  locale: en_US
+  ideas:
+    - 2-way sync tmx maps and this yaml
+    - live reload and check gui params
+    - prepend slugs with correct prefix
+platform:
+  display:
+    width: 256
+    height: 240
+    overscan: true  # TODO: match to analog tv
+  audio:
+    channels: 1
+  input:
+    gamepad:
+      axis:
+        - up, down
+        - left, right
+      button: a, b, start, select
+resources:
+  - slug: resource_alefgard_tmx
+    class: tiled_tmx_map
+    map: map_alefgard
+    filename: resources/alefgard.tmx
+style:
+  - slug: style_default_position
+    style:
+      alt: null
+      xpos: null
+      ypos: null
+      xanchor: null
+      yanchor: null
+      xalign: null
+      yalign: null
+      xcenter: null
+      ycenter: null
+      xoffset: null
+      yoffset: null
+      xmaximum: null
+      ymaximum: null
+      xminimum: null
+      yminimum: null
+      xsize: null
+      ysize: null
+      xfill: null
+      yfill: null
+      area: null
+  - slug: style_default_text
+    style:
+      antialias: false
+      adjust_spacing: null
+      black_color: null
+      bold: null
+      caret: null
+      color: 255, 255, 255
+      first_indent: null
+      font: nes.ttf
+      size: null
+      italic: null
+      justify: null
+      kerning: null
+      language: null
+      layout: null
+      line_leading: null
+      line_overlap_split: null
+      line_spacing: null
+      min_width: null
+      newline_indent: null
+      outlines: false
+      rest_indent: null
+      slow_abortable: null
+      slow_cps: null
+      slow_cps_multiplier: null
+      strikethrough: null
+      text_align: left
+      underline: null
+      hyperlink_functions: null
+      vertical: null
+      hinting: false
+  - slug: style_default_window
+    style:
+      background: 0, 0, 0
+      foreground: null
+      left_margin: 6
+      right_margin: 6
+      top_margin: 6
+      bottom_margin: 6
+      left_padding: null
+      right_padding: null
+      top_padding: null
+      bottom_padding: null
+  - slug: style_default_button
+    style:
+      child: null
+      hover_sound: null
+      activate_sound: null
+      mouse: null
+      focus_mask: null
+      keyboard_focus: null
+      key_events: null
+  - slug: style_default_bar
+    style:
+      bar_vertical: null
+      bar_invert: null
+      bar_resizing: null
+      left_gutter: null
+      right_gutter: null
+      top_gutter: null
+      bottom_gutter: null
+      left_bar: null
+      right_bar: null
+      top_bar: null
+      bottom_bar: null
+      base_bar: null
+      mouse: null
+      unscrollable: null
+      keyboard_focus: null
+  - slug: style_default_box
+    style:
+      spacing: null
+      first_spacing: null
+      box_reverse: null
+      box_wrap: null
+      box_wrap_spacing: null
+  - slug: style_default_grid
+    style:
+      spacing: null
+      xspacing: null
+      yspacing: null
+  - slug: style_default_fixed
+    style:
+      fit_first: null
+      xfit: null
+      yfit: null
+      order_reverse: null
+options:
+  - slug: option_combat_fight
+    text: Fight
+  - slug: option_combat_fight
+    text: Spell
+  - slug: option_combat_fight
+    text: Run
+  - slug: option_combat_fight
+    text: Item
+  - slug: option_map_talk
+    text: Talk
+  - slug: option_map_status
+    text: Status
+  - slug: option_map_stairs
+    text: Stairs
+  - slug: option_map_search
+    text: Search
+  - slug: option_map_spell
+    text: Spell
+  - slug: option_map_item
+    text: Item
+  - slug: option_map_door
+    text: Door
+  - slug: option_map_take
+    text: Take
+  - slug: option_yes
+    text: Yes
+  - slug: option_no
+    text: No
+choices:
+  - slug: choices_yes_no
+    items:
+      - option_yes
+      - option_no
+  - slug: choices_combat_commands
+    items:
+      - option_combat_fight
+      - option_combat_run
+      - option_combat_spell
+      - option_combat_item
+  - slug: choices_map_commands
+    items:
+      - option_map_talk
+      - option_map_status
+      - option_map_stairs
+      - option_map_search
+      - option_map_spell
+      - option_map_item
+      - option_map_door
+      - option_map_take
+window:
+  - slug: window_combat_commands
+    style:
+      text_transform: ["uppercase"]
+    choices: choices_combat_commands
+  - slug: window_map_commands
+    style:
+      text_transform: ["uppercase"]
+    choices: choices_map_commands
+player:
+  equip_slot:
+    - equip_class_weapon
+    - equip_class_armor
+    - equip_class_shield
+  stat:
+    - stat_level
+    - stat_strength
+    - stat_agility
+    - stat_hp
+    - stat_mp
+    - stat_attack_power
+    - stat_defense_power
+stat_class:
+  - slug: stat_level
+    text: Level
+    format: int
+  - slug: stat_strength
+    text: Strength
+    format: int
+  - slug: stat_agility
+    text: Agility
+    format: int
+  - slug: stat_hp
+    text: HP
+    format: int
+  - slug: stat_mp
+    text: MP
+    format: int
+  - slug: stat_attack_power
+    text: Attack Power
+    format: int
+  - slug: stat_defense_power
+    text: Defense Power
+    format: int
+equip_class:
+  - slug: equip_class_weapon
+    text: Weapon
+  - slug: equip_class_armor
+    text: Armor
+  - slug: equip_class_shield
+    text: Shield
+  - slug: equip_class_inventory
+    text: Inventory
+equip_slot:
+  - slug: equip_slot_weapon
+    text: Weapon
+  - slug: equip_slot_armor
+    text: Armor
+  - slug: equip_slot_shield
+    text: Shield
+item:
+  weight: 0
+  - slug: weapon_club
+    text: Club
+    equip: equip_class_weapon
+    power: 4
+  - slug: weapon_bamboo_pole
+    text: Bamboo Pole
+    equip: equip_class_weapon
+    power: 2
+  - slug: weapon_broad_sword
+    text: Broad Sword
+    equip: equip_class_weapon
+    power: 20
+  - slug: weapon_erdricks_sword
+    text: Erdrick's Sword
+    equip: equip_class_weapon
+    power: 40
+  - slug: weapon_flame_sword
+    text: Flame Sword
+    equip: equip_class_weapon
+    power: 28
+  - slug: weapon_hand_axe
+    text: Hand Axe
+    equip: equip_class_weapon
+    power: 15
+  - slug: armor_chain_mail
+    text: Chain Mail
+    equip: equip_class_weapon
+    power: 10
+  - slug: armor_clothes
+    text: Clothes
+    equip: equip_class_weapon
+    power: 2
+  - slug: armor_erdricks_armor
+    text: Erdrick's Armor
+    equip: equip_class_armor
+    power: 28
+  - slug: armor_full_plate
+    text: Full Plate
+    equip: equip_class_armor
+    power: 24
+  - slug: armor_half_plate
+    text: Half Plate
+    equip: equip_class_armor
+    power: 16
+  - slug: armor_leather_armor
+    text: Leather Armor
+    equip: equip_class_armor
+    power: 4
+  - slug: armor_magic_armor
+    text: Magic Armor
+    equip: equip_class_armor
+    power: 24
+  - slug: shield_large_shield
+    text: Large Shield
+    equip: equip_class_armor
+    power: 10
+  - slug: shield_silver_shield
+    text: Silver Shield
+    equip: equip_class_armor
+    power: 24
+  - slug: shield_small_shield
+    text: Small Shield
+    equip: equip_class_armor
+    power: 4
+  - slug: item_magic_key
+    text: Magic Key
+  - slug: item_torch
+    text: Torch
+  - slug: item_cursed_belt
+    text: Cursed Belt
+  - slug: item_cursed_necklace
+    text: Cursed Necklace
+  - slug: item_dragons_scale
+    text: Dragon's Scale
+  - slug: item_erdricks_tablet
+    text: Erdrick's Tablet
+  - slug: item_erdricks_token
+    text: Erdrick's Token
+  - slug: item_fairys_flute
+    text: Fairy's Flute
+  - slug: item_fairy_water
+    text: Fairy Water
+  - slug: item_fighters_ring
+    text: Fighters Ring
+  - slug: item_gwaelins_love
+    text: Gwaelin's Love
+  - slug: item_medicinal_herb
+    text: Medicinal Herb
+  - slug: item_rainbow_drop
+    text: Rainbow Drop
+  - slug: item_silver_harp
+    text: Silver Harp
+  - slug: item_staff_of_rain
+    text: Staff of Rain
+  - slug: item_stones_of_sunslight
+    text: Sunlight Stones
+  - slug: item_wings
+    text: Wings
+technique_class:
+  - slug: technique_class_attack
+    text: Attack
+  - slug: technique_class_spell
+    text: Spell
+technique:
+  - slug: technique_attack_with_weapon
+    text: Fight
+  - slug: technique_run
+    text: Run
+  - slug: technique_player_heal
+    text: Heal
+    class: technique_class_spell
+    mp_cost: 4
+  - slug: technique_mob_heal
+    text: Heal
+    class: technique_class_spell
+    mp_cost: 4
+  - slug: technique_player_healmore
+    text: Healmore
+    class: technique_class_spell
+    mp_cost: 10
+  - slug: technique_mob_healmore
+    text: Healmore
+    class: technique_class_spell
+    mp_cost: 10
+  - slug: technique_player_hurt
+    text: Hurt
+    class: technique_class_spell
+    mp_cost: 2
+  - slug: technique_mob_hurt
+    text: Hurt
+    class: technique_class_spell
+    mp_cost: 2
+  - slug: technique_player_hurtmore
+    text: Huremore
+    class: technique_class_spell
+    mp_cost: 5
+  - slug: technique_mob_hurtmore
+    text: Huremore
+    class: technique_class_spell
+    mp_cost: 5
+  - slug: technique_outside
+    text: Outside
+    class: technique_class_spell
+    mp_cost: 6
+  - slug: technique_radiant
+    text: Radiant
+    class: technique_class_spell
+    mp_cost: 3
+  - slug: technique_repel
+    text: Repel
+    class: technique_class_spell
+    mp_cost: 2
+  - slug: technique_return
+    text: Return
+    class: technique_class_spell
+    mp_cost: 8
+  - slug: technique_sleep
+    text: Sleep
+    class: technique_class_spell
+    mp_cost: 2
+  - slug: technique_stopspell
+    text: Stopspell
+    class: technique_class_spell
+    mp_cost: 2
+  - slug: technique_strong_fire_breath
+    text: Fire Breath
+    class: technique_class_spell
+  - slug: technique_weak_fire_breath
+    text: Fire Breath
+    class: technique_class_spell
+exit_class:
+  - slug: exit_overworld_town
+    tile: tile_overworld_town
+  - slug: exit_overworld_castle
+    tile: tile_overworld_castle
+  - slug: exit_overworld_cave
+    tile: tile_overworld_cave
+  - slug: exit_stairs_down
+    tile: tile_stairs_down
+  - slug: exit_stairs_up
+    tile: tile_stairs_up
+map:
+  - slug: map_alefgard
+    text: Alefgard
+    exits:
+      - map: map_erdricks_cave
+        text: Erdrick's Cave
+        class: exit_overworld_cave
+      - map: map_garinham
+        text: Garinham
+        class: exit_overworld_town
+      - map: map_haukness
+        text: Haukness
+        class: exit_overworld_town
+      - map: map_mountain_cave
+        text: Mountain Cave
+        class: exit_overworld_cave
+      - map: map_cantlin
+        text: Cantlin
+        class: exit_overworld_town
+      - map: map_magic_temple
+        text: Magic Temple
+        class: exit_stairs_down
+      - map: map_rimuldar
+        text: Rimular
+        class: exit_overworld_town
+      - map: map_swamp_cave
+        text: Swamp Cave
+        class: exit_overworld_town
+      - map: map_kol
+        text: Kol
+        class: exit_overworld_town
+      - map: map_brecconary
+        text: Brecconary
+        class: exit_overworld_town
+      - map: map_tantegel
+        text: Tantegel
+        class: exit_overworld_town
+      - map: map_charlock
+        text: Charlock
+        class: exit_overworld_town
+    region:
+      zone00:
+        encounters:  mob_slime, mob_red_slime, mob_slime, mob_red_slime, mob_slime
+      zone01:
+        encounters:  mob_red_slime, mob_slime, mob_red_slime, mob_drakee, mob_red_slime
+      zone02:
+        encounters:  mob_slime, mob_ghost, mob_drakee, mob_ghost, mob_red_slime
+      zone03:
+        encounters:  mob_red_slime, mob_red_slime, mob_drakee, mob_ghost, mob_magician
+      zone04:
+        encounters:  mob_ghost, mob_magician, mob_magidrakee, mob_magidrakee, mob_scorpion
+      zone05:
+        encounters:  mob_ghost, mob_magician, mob_magidrakee, mob_scorpion, mob_skeleton
+      zone06:
+        encounters:  mob_magidrakee, mob_scorpion, mob_skeleton, mob_warlock, mob_wolf
+      zone07:
+        encounters:  mod_skeleton, mob_warlock, mob_metal_scorpion, mob_wolf, mob_wolf
+      zone08:
+        encounters:  mob_metal_scorpion, wraith, mob_wolflord, mob_wolflord, mob_goldman
+      zone09:
+        encounters:  mob_wraith, mob_wyvern, mob_wolflord, mob_wyvern, mob_goldman
+      zone10:
+        encounters:  mob_wyvern, mob_rogue_scorpion, mob_wraith_knight, mob_knight, mob_demon_knight
+      zone11:
+        encounters:  mob_raith_knight, mob_knight, magiwyvern, mob_demon_knight, mob_metal_slime
+      zone12:
+        encounters:  mob_knight, mob_magiwyvern, mob_demon_knight, mob_werewolf, mob_starwyvern
+      zone13:
+        encounters:  mob_werewolf, mob_green_dragon, mob_starwyvern, mob_starwyvern, mob_wizard
+      zone14:
+        encounters:  mob_poltergeist, mob_droll, mob_drakeema, mob_skeleton, mob_warlock
+      zone15:
+        encounters:  mob_specter, mob_wolflord, mob_druinlord, mob_drollmagi, mob_wraith_knight
+      zone16:
+        encounters:  mob_werewolf, mob_green_dragon, mob_starwyvern, mob_wizard, mob_axe_knight
+      zone17:
+        encounters:  mob_wizard, mob_axe_knight, mob_blue_dragon, mob_blue_dragon, mob_stoneman
+      zone18:
+        encounters:  mob_wizard, mob_stoneman, mob_armored_knight, mob_armored_knight, mob_red_dragon
+      zone19:
+        encounters:  mob_ghost, mob_magician, mob_scorpion, mob_druin, mob_druin
+  - slug: map_tantegel_castle
+    exits:
+      - map: map_tentegel_throne_room
+        class: exit_stairs_up
+      - map: map_tentegel_room_1
+        class: exit_stairs_up
+      - map: map_tentegel_room_2
+        class: exit_stairs_up
+      - map: map_tentegel_room_3
+        class: exit_stairs_up
+      - map: map_tentegel_room_4
+        class: exit_stairs_up
+      - map: map_tentegel_room_5
+        class: exit_stairs_down
+      - map: map_alefgard
+        class: exit_boundary
+      - map: map_alefgard
+        class: exit_boundary
+      - map: map_alefgard
+        class: exit_boundary
+  - slug: map_tantegel_throne_room
+    text: Throne Room
+    exits:
+      - map: map_tantegel_castle
+        text: Tantegel Castle
+        class: exit_stairs_down
+  - slug: map_tantegel_room_1
+    text: Aux Room 1
+    exits:
+      - map: map_tantegel_castle
+        text: Tantegel Castle
+        class: exit_stairs_down
+  - slug: map_tantegel_room_2
+    text: Aux Room 2
+    exits:
+      - map: map_tantegel_castle
+        text: Tantegel Castle
+        class: exit_stairs_down
+  - slug: map_tantegel_room_3
+    text: Aux Room 3
+    exits:
+      - map: map_tantegel_castle
+        text: Tantegel Castle
+        class: exit_stairs_down
+  - slug: map_tantegel_room_4
+    text: Altar Room
+    exits:
+      - map: map_tantegel_castle
+        text: Tantegel Castle
+        class: exit_stairs_down
+  - slug: map_tantegel_room_5
+    text: Bedroom
+    exits:
+      - map: map_tantegel_castle
+        text: Tantegel Castle
+        class: exit_stairs_down
+currencies:
+  - slug: currency_gold
+    text: Gold
+    weight: 0
+economy:
+  - slug: economy_alefgard
+    currency: currency_gold
+    items:
+      - item: weapon_bamboo_pole
+        cost: 10
+      - item: weapon_club
+        cost: 60
+      - item: weapon_copper_sword
+        cost: 180
+      - item: armor_clothes
+        cost: 20
+      - item: armor_leather_armor
+        cost: 70
+      - item: armor_chain_mail
+        cost: 300
+      - item: armor_half_plate
+        cost: 1000
+      - item: shield_large_shield
+        cost: 800
+      - item: shield_small_shield
+        cost: 90
+      - item: item_medicinal_herb
+        cost: 24
+      - item: item_torch
+        cost: 8
+      - item: item_dragons_scale
+        cost: 20
+inventory:
+  - slug: inventory_brecconary_weapons
+    quantity: unlimited
+    inventory:
+      - item: weapon_bamboo_pole
+      - item: weapon_club
+      - item: weapon_copper_sword
+      - item: weapon_clothes
+      - item: weapon_leather_armor
+      - item: weapon_small_shield
+  - slug: shop_brecconary_tools
+    quantity: unlimited
+    inventory:
+      - item: item_medicinal_herb
+      - item: item_torch
+      - item: item_dragons_scale
+  - slug: shop_garinham_weapons
+    quantity: unlimited
+    inventory:
+      - item: weapon_club
+      - item: weapon_copper_sword
+      - item: weapon_hand_axe
+      - item: armor_leather_armor
+      - item: armor_chain_mail
+      - item: armor_half_plate
+      - item: shield_large_shield
+  - slug: shop_garinham_items
+    quantity: unlimited
+    inventory:
+      - item: item_medicinal_herb
+      - item: item_torch
+      - item: item_dragons_scale
+terrain:
+  - slug: terrain_grass
+    movement: 0
+    encounter_rate: 1
+    hp_cost: 0
+  - slug: terrain_heavy_grass
+    movement: 0
+    encounter_rate: 2
+    hp_cost: 0
+  - slug: terrain_forest
+    movement: 0
+    encounter_rate: 3
+    hp_cost: 0
+  - slug: terrain_hill
+    movement: 0
+    encounter_rate: 5
+    hp_cost: 0
+  - slug: terrain_poison_swamp
+    movement: 0
+    encounter_rate: 5
+    hp_cost: 2
+  - slug: terrain_magic_floor
+    movement: 0
+    encounter_rate: 0
+    hp_cost: 20
+  - slug: terrain_mountain
+    movement: 0
+    encounter_rate: 0
+    hp_cost: 0
+  - slug: terrain_cave_floor
+    movement: 0
+    encounter_rate: 4
+    hp_cost: 0
+mob:
+  - slug: mob_slime
+    name: Slime
+    strength: 5
+    agility: 5
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 1
+    gp: 1
+  - slug: mob_red_slime
+    name: Red Slime
+    strength: 7
+    agility: 7
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 1
+    gp: 2
+  - slug: mob_drakee
+    name: Drakee
+    strength: 9
+    agility: 9
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 2
+    gp: 2
+  - slug: mob_ghost
+    name: Ghost
+    strength: 11
+    agility: 11
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 4~64
+    xp: 3
+    gp: 3
+  - slug: mob_magician
+    name: Magician
+    strength: 11
+    agility: 11
+    sleep_resist: 0~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 4
+    gp: 9
+  - slug: mob_magidrakee
+    name: Magidrakee
+    strength: 14
+    agility: 14
+    sleep_resist: 0~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 5
+    gp: 9
+  - slug: mob_scorpion
+    name: Scorpion
+    strength: 18
+    agility: 18
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 6
+    gp: 12
+  - slug: mob_druin
+    name: Druin
+    strength: 20
+    agility: 20
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 7
+    gp: 12
+  - slug: mob_poltergeist
+    name: Poltergeist
+    strength: 18
+    agility: 18
+    sleep_resist: 0~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 6~64
+    xp: 8
+    gp: 13
+  - slug: mob_droll
+    name: Droll
+    strength: 24
+    agility: 24
+    sleep_resist: 0~16
+    stopspell_resist: 14~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 10
+    gp: 18
+  - slug: mob_drakeema
+    name: Drakeema
+    strength: 22
+    agility: 22
+    sleep_resist: 2~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 6~64
+    xp: 11
+    gp: 15
+  - slug: mob_skeleton
+    name: Skeleton
+    strength: 28
+    agility: 28
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 4~64
+    xp: 11
+    gp: 22
+  - slug: mob_warlock
+    name: Warlock
+    strength: 28
+    agility: 28
+    sleep_resist: 3~16
+    stopspell_resist: 1~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 13
+    gp: 26
+  - slug: mob_metal_scorpion
+    name: Metal Scorpion
+    strength: 36
+    agility: 36
+    sleep_resist: 0~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 14
+    gp: 30
+  - slug: mob_wolf
+    name: Wolf
+    strength: 40
+    agility: 40
+    sleep_resist: 1~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 16
+    gp: 37
+  - slug: mob_wraith
+    name: Wraith
+    strength: 44
+    agility: 44
+    sleep_resist: 7~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 4~64
+    xp: 17
+    gp: 45
+  - slug: mob_metal_slime
+    name: Metal Slime
+    strength: 10
+    agility: 10
+    sleep_resist: 15~16
+    stopspell_resist: 15~16
+    hurt_resist: 15~16
+    dodge: 1~64
+    xp: 115
+    gp: 4
+  - slug: mob_specter
+    name: Specter
+    strength: 40
+    agility: 40
+    sleep_resist: 3~16
+    stopspell_resist: 1~16
+    hurt_resist: 0~16
+    dodge: 4~64
+    xp: 18
+    gp: 52
+  - slug: mob_wolflord
+    name: Wolflord
+    strength: 50
+    agility: 50
+    sleep_resist: 4~16
+    stopspell_resist: 7~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 20
+    gp: 60
+  - slug: mob_druinlord
+    name: Druinlord
+    strength: 47
+    agility: 47
+    sleep_resist: 15~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 4~64
+    xp: 20
+    gp: 63
+  - slug: mob_drollmagi
+    name: Drollmagi
+    strength: 52
+    agility: 52
+    sleep_resist: 2~16
+    stopspell_resist: 2~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 22
+    gp: 67
+  - slug: mob_wyvern
+    name: Wyvern
+    strength: 56
+    agility: 56
+    sleep_resist: 4~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 24
+    gp: 75
+  - slug: mob_rogue_scorpion
+    name: Rogue Scorpion
+    strength: 60
+    agility: 60
+    sleep_resist: 7~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 26
+    gp: 82
+  - slug: mob_wraith_knight
+    name: Wraith Knight
+    strength: 68
+    agility: 68
+    sleep_resist: 5~16
+    stopspell_resist: 0~16
+    hurt_resist: 3~16
+    dodge: 4~64
+    xp: 28
+    gp: 90
+  - slug: mob_golem
+    name: Golem
+    strength: 120
+    agility: 120
+    sleep_resist: 15~16
+    stopspell_resist: 15~16
+    hurt_resist: 15~16
+    dodge: 0~64
+    xp: 5
+    gp: 7
+  - slug: mob_goldman
+    name: Goldman
+    strength: 48
+    agility: 48
+    sleep_resist: 13~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 6
+    gp: 150
+  - slug: mob_knight
+    name: Knight
+    strength: 76
+    agility: 76
+    sleep_resist: 6~16
+    stopspell_resist: 7~16
+    hurt_resist: 0~16
+    dodge: 1~64
+    xp: 33
+    gp: 97
+  - slug: mob_magiwyvern
+    name: Magiwyvern
+    strength: 78
+    agility: 78
+    sleep_resist: 2~16
+    stopspell_resist: 0~16
+    hurt_resist: 0~16
+    dodge: 2~64
+    xp: 34
+    gp: 105
+  - slug: mob_demon_knight
+    name: Demon Knight
+    strength: 79
+    agility: 79
+    sleep_resist: 15~16
+    stopspell_resist: 15~16
+    hurt_resist: 15~16
+    dodge: 15~64
+    xp: 37
+    gp: 112
+  - slug: mob_werewolf
+    name: Werewolf
+    strength: 86
+    agility: 86
+    sleep_resist: 7~16
+    stopspell_resist: 15~16
+    hurt_resist: 0~16
+    dodge: 7~64
+    xp: 40
+    gp: 116
+  - slug: mob_green_dragon
+    name: Green Dragon
+    strength: 88
+    agility: 88
+    sleep_resist: 7~16
+    stopspell_resist: 15~16
+    hurt_resist: 2~16
+    dodge: 2~64
+    xp: 45
+    gp: 120
+  - slug: mob_starwyvern
+    name: Starwyvern
+    strength: 86
+    agility: 86
+    sleep_resist: 8~16
+    stopspell_resist: 0~16
+    hurt_resist: 1~16
+    dodge: 2~64
+    xp: 43
+    gp: 120
+  - slug: mob_wizard
+    name: Wizard
+    strength: 80
+    agility: 80
+    sleep_resist: 15~16
+    stopspell_resist: 7~16
+    hurt_resist: 15~16
+    dodge: 2~64
+    xp: 50
+    gp: 123
+  - slug: mob_axe_knight
+    name: Axe Knight
+    strength: 94
+    agility: 94
+    sleep_resist: 15~16
+    stopspell_resist: 3~16
+    hurt_resist: 1~16
+    dodge: 1~64
+    xp: 54
+    gp: 123
+  - slug: mob_blue_dragon
+    name: Blue Dragon
+    strength: 98
+    agility: 98
+    sleep_resist: 15~16
+    stopspell_resist: 15~16
+    hurt_resist: 7~16
+    dodge: 2~64
+    xp: 60
+    gp: 112
+  - slug: mob_stoneman
+    name: Stoneman
+    strength: 100
+    agility: 100
+    sleep_resist: 2~16
+    stopspell_resist: 15~16
+    hurt_resist: 7~16
+    dodge: 1~64
+    xp: 65
+    gp: 105
+  - slug: mob_armored_knight
+    name: Armored Knight
+    strength: 105
+    agility: 105
+    sleep_resist: 15~16
+    stopspell_resist: 7~16
+    hurt_resist: 1~16
+    dodge: 2~64
+    xp: 70
+    gp: 105
+  - slug: mob_red_dragon
+    name: Red Dragon
+    strength: 120
+    agility: 120
+    sleep_resist: 15~16
+    stopspell_resist: 7~16
+    hurt_resist: 15~16
+    dodge: 2~64
+    xp: 100
+    gp: 105
+  - slug: mob_dragonlord_first_form
+    name: Dragonlord First Form
+    strength: 90
+    agility: 90
+    sleep_resist: 15~16
+    stopspell_resist: 15~16
+    hurt_resist: 15~16
+    dodge: 0~64
+    xp: 0
+    gp: 0
+  - slug: mob_dragonlord_second_form
+    name: Dragonlord Second Form
+    strength: 140
+    agility: 140
+    sleep_resist: 15~16
+    stopspell_resist: 15~16
+    hurt_resist: 15~16
+    dodge: 0~64
+    xp: 0
+    gp: 0
+npc:
+  - slug: npc_king_loric
+  - slug: npc_brecconary_weapon_merchant
+    events:
+      - type: interact
+        do:
+          - name: shop
+            shop: inventory_brecconary_weapons
+plot:
+  events:
+    # stuff that is saved in the game file
+    - Charlock Hidden Stairs Revealed
+    - Rainbow Bridge Built
+    - Wearing Dragon's Scale
+    - Wearing Fighter's Ring
+    - Wearing Cursed Belt
+    - Wearing Death Necklace
+    - Gwaelin Rescued
+    - Gwealin on Throne
+    - Started Quest
+    - Golem Killed
+    - Dragonlord Killed
+    - Green Dragon Guarding Princess Gwaelin Killed
