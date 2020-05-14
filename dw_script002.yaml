@@ -1,44 +1,45 @@
----
-scene: 1
-setting:
-  map: throne room
-  actors:
-    - king loric
-    - player
-    - door guard 1
-    - door guard 2
-    - personal guard
-  objects:
-    - chest 1
-    - chest 2
-    - chest 3
-  exits:
-    - stairs to castle
-  script:
-    WHEN PLAYER TALKS TO KING LORIC: >
-      KING LORIC
-        Descendant of Erdrick, listen now to my words.
+properties:
+  container:
+    - is container
+    - contains
+    - is contained by
 
-        It is told that in ages past Erdrick fought demons with a Ball of
-        Light. Then came the Dragonlord who stole the precious globe and hid
-        it in the darkness.
+torch:
+  properties:
+    - is thing
+    - is consumable
+    - light radius: 3
 
-        Now, <player name>, thou must help us recover the Ball of Light and
-        restore peace to our land.
+person:
+  properties:
+    - is thing
 
-        The Dragonlord must be defeated.
+king:
+  properties:
 
-        Take now whatever thou may find in these Treasure Chests to aid thee
-        in thy quest.
+chest:
+  properties:
+    - is container
 
-        Then speak with the guards, for they have much knowledge that may aid
-        thee. May the light shine upon thee, <player name>.
-
-    WHEN PLAYER OPENS CHEST 1: >
-      give player 120 gold
-
-    WHEN PLAYER OPENS CHEST 2: >
-      give player 1 torch
-
-    WHEN PLAYER OPENS CHEST 3: >
-      give player 1 magic key
+objects:
+  king loric:
+    properties:
+      - is person
+      - can talk
+    dialog:
+      Descendant of Erdrick, listen now to my words...
+  chest 1:
+    properties:
+      - is chest
+    contains:
+      - 120 gold
+  chest 2:
+    properties:
+      - is chest
+    contains:
+      - 1 torch
+  chest 3:
+    properties:
+      - is chest
+    contains:
+      1 magic key

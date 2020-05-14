@@ -1,45 +1,51 @@
-properties:
-  container:
-    - is container
-    - contains
-    - is contained by
-
-torch:
+gold:
+  super: thing
   properties:
-    - is thing
-    - is consumable
-    - light radius: 3
-
-person:
-  properties:
-    - is thing
-
-king:
-  properties:
+    - collection
 
 chest:
+  super: thing
   properties:
-    - is container
+    - container
 
-objects:
-  king loric:
-    properties:
-      - is person
-      - can talk
-    dialog:
-      Descendant of Erdrick, listen now to my words...
-  chest 1:
-    properties:
-      - is chest
-    contains:
-      - 120 gold
-  chest 2:
-    properties:
-      - is chest
-    contains:
-      - 1 torch
-  chest 3:
-    properties:
-      - is chest
-    contains:
-      1 magic key
+person:
+  super: thing
+  properties:
+    - lineage: null
+    - living: True
+    - timeline: 100
+    - named: No Name
+
+chest 1:
+  super: chest
+  container:
+    - 120 gold
+
+chest 2:
+  super: chest
+  container:
+    - 1 torch
+
+chest 3:
+  super: chest
+  container:
+    - 1 magic key
+
+erdrick:
+  super: person
+  named: Erdrick
+  living: false
+  timeline: 0
+
+hero:
+  super: person
+  lineage:
+    - erdrick
+
+king loric:
+  super: person
+  named: King Loric
+  situations:
+    - talking to the player:
+        - when the quest begins:
+        - says: "Descendant of Erdrick, listen now to my words..."

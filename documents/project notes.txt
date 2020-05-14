@@ -6,3 +6,59 @@ similar in scope to inform 7
 balance syntax and english keywords
 do not make is conversational english
 must be accessible to non-native speakers
+"rule" based
+
+words, concepts, expressions to consider
+- relates to
+- is
+- adjective
+- noun
+- verb
+- words which give properties to objects
+
+containers: >
+  containers are allowed to "contain" other objects.
+  in a reality, we define "containing" as a variety
+  of descriptions, but mostly that the item being
+  contained cannot escape from the dimensions/walls
+  of the container.  for the game, we do not model
+  the physical objects, so we have an abstraction of
+  containers, where the "contained" objects are related
+  through a list.  items cannot be contained by multiple
+  objects.  it cannot be contained by nothing.  it must
+  have a container, and that container may be a npc,
+  chest, or map.
+
+game atoms:
+  - map
+  - exit
+  - thing
+  - info
+  - relation
+
+basic properties:
+  - consumable
+  - container
+  - talks
+  - containers can tag its children
+  - tags can be passed to children
+
+built in relations:
+  - contained by
+  - incorporation (is part of)
+  - possession
+  - position ("to left of...")
+  - visibility
+
+relations (symmetric and asymmetric):
+  - one thing to one thing
+  - various things to one thing
+  - one thing to various things
+  - various things to various things
+
+relations can be stored in memory, or as formulas,
+checked at runtime.
+
+- underlying objects are python instances
+- properties add methods
+- methods are implicitly namespaced
