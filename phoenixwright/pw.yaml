@@ -1,0 +1,105 @@
+people:
+  - slug: wright
+    name: Phoenix Wright
+    dob: 1992
+    height: 176cm
+    eye_color: dark blue
+    hair_color: black
+    occupation: defense attorney
+    sex: male
+  - slug: edgeworth
+    name: Miles Edgeworth
+    dob: 1992
+    height: 178cm
+    eye_color: gray
+    hair_color: dark gray
+    occupation: prosecutor
+    sex: male
+  - slug: maya
+    name: Maya Fey
+    dob: 1999
+    height: 154cm
+    eye_color: blue
+    hair_color: black
+    occupation: spirit medium
+    sex: female
+  - slug: mia
+    name: Mia Fey
+    dob: 1989
+    height: 168cm
+    eye_color: brown
+    hair_color: brown
+    occupation: dead
+    sex: female
+  - slug: april
+    name: April May
+    dob: 1993
+    height: 157cm
+    eye_color: brown
+    hair_color: pink
+    occupation: unknown (former sec. of redd white)
+    sex: female
+  - slug: redd
+    name: Redd White
+    dob: 1977
+    height: 178cm
+    eye_color: blue
+    hair_color: purple
+    occupation: incarcerated
+    sex: male
+object:
+  - slug: affidavit
+  - slug: autopsy
+  - slug: badge
+  - slug: fisherman painting
+  - slug: floor plans
+  - slug: lamp
+  - slug: may testimony
+  - slug: maya cell phone
+  - slug: maya memo
+  - slug: mia memo
+  - slug: misty photograph
+  - slug: newspaper clipping
+  - slug: receipt
+  - slug: screw driver
+  - slug: shattered glass lamp
+  - slug: the thinker
+  - slug: wire tap
+fragments:
+  - the thinker statue is a clock
+locations:
+  - slug: mia office
+  - slug: office lobby
+  - slug: gatewater hotel room
+  - slug: courtroom
+  - slug: courthouse
+  - slug: bluecorp ceo office
+  - slug: detention center
+  - slug: grossberg office
+case:
+  - slug: g01e02
+    title: turnabout sisters
+      facts: >
+      time 20xx-09-05 20:00 (appox)
+      location mia office
+      enter mia
+      phone mia wright
+      time 20xx-09-05 20:57
+      enter redd_white
+      redd_white take thinker
+      redd_white knocks over lamp
+      redd_white attack mia with thinker
+      mia dies
+      redd_white writes "maya" on receipt
+      redd_white leaves
+      phone aprilmay police
+      time 20xx-09-05 21:00
+      enter maya
+      time 20xx-09-05 21:30
+      enter phoenix
+      faint maya
+      phoenix moves maya to couch
+      time 20xx-09-05 21:30
+      enter gumshoe
+      take gumshoe receipt
+      arrest gumshoe maya

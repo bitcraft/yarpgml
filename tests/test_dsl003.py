@@ -15,7 +15,7 @@ class Atom:
     pass
 
 
-class Property:
+class Property(Atom):
     name = "Property"
     value = None
 
@@ -26,7 +26,7 @@ class Property:
             return f"{self.name}={self.value}"
 
 
-class Relation:
+class Relation(Atom):
     ONE_TO_ONE = 0
     ONE_TO_MANY = 1
     MANY_TO_ONE = 2
@@ -34,8 +34,56 @@ class Relation:
     MANY_TO_MANY_ASYM = 4
 
 
+class Map(Atom):
+    pass
+
+
+class Exit(Atom):
+    pass
+
+
+class Thing(Atom):
+    def __init__(self):
+        self._props = dict()
+
+    @property
+    def properties(self):
+        return self._props.values()
+
+    def add_property(self, prop):
+        self._props[prop.name] = prop
+
+    def set_property(self, name, value):
+        self._props[name].value = value
+
+    def __str__(self):
+        props = ", ".join(str(i) for i in self._props.values())
+        return f"<Thing: {props}>"
+
+
+class MemoryProperty(Property):
+    name = "memory"
+
+    def __init__(self):
+        self.value = dict()
+
+    def add(self, item):
+        self.value.append(item)
+
+    def remove(self, item):
+        self.value.remove(item)
+
+
 class PositionRelation(Relation):
     name = "position"
+
+
+class ColorProperty(Property):
+    name = "color"
+
+
+class WearableProperty(Property):
+    name = "wearable"
 
 
 class NamedProperty(Property):
@@ -71,33 +119,6 @@ class ContainerProperty(Property):
         self.value.remove(item)
 
 
-class Map(Atom):
-    pass
-
-
-class Exit(Atom):
-    pass
-
-
-class Thing(Atom):
-    def __init__(self):
-        self._props = dict()
-
-    @property
-    def properties(self):
-        return self._props.values()
-
-    def add_property(self, prop):
-        self._props[prop.name] = prop
-
-    def set_property(self, name, value):
-        self._props[name].value = value
-
-    def __str__(self):
-        props = ", ".join(str(i) for i in self._props.values())
-        return f"<Thing: {props}>"
-
-
 class Person(Thing):
     pass
 
@@ -111,14 +132,7 @@ class YAMLLoader:
         self.supers = {"thing": Thing}
         self.super_map = dict()
         self.super_props = dict()
-        props = [
-            CollectionProperty,
-            ContainerProperty,
-            LineageProperty,
-            TimelineProperty,
-            LivingProperty,
-            NamedProperty,
-        ]
+        props = [v for k, v in globals().items() if k.endswith("Property")]
         self.all_props = map_by_attr("name", props)
 
     def load(self):
@@ -147,19 +161,20 @@ class YAMLLoader:
         yield self.super_map[name]
 
     def as_property(self, prop_config):
+        # bare properties become boolean, defaulting to True
         if isinstance(prop_config, str):
-            prop_name = prop_config
-            attrs = None
-        elif isinstance(prop_config, dict):
-            assert len(prop_config) <= 1
-            prop_name, attrs = list(prop_config.items())[0]
-        else:
-            raise ValueError
+            prop_config = {prop_config: True}
+        assert isinstance(prop_config, dict)
+        assert len(prop_config) <= 1
+        prop_name, attrs = list(prop_config.items())[0]
         prop_class = self.all_props[prop_name]
         prop = prop_class()  # type: Property
         if attrs is not None:
             prop.value = attrs
         return prop
+
+    def as_collection(self):
+        pass
 
     def set_property_values(self, thing, config):
         for prop in thing.properties:

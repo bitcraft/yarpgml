@@ -3,6 +3,24 @@ gold:
   properties:
     - collection
 
+fixture:
+  super: thing
+
+clothes:
+  super: thing
+  properties:
+    - wearable
+
+shirt 1:
+  super: clothes
+  properties:
+    - color: blue
+
+pants 1:
+  super: clothes
+  properties:
+    - color: brown
+
 chest:
   super: thing
   properties:
@@ -14,7 +32,6 @@ person:
     - lineage: null
     - living: True
     - timeline: 100
-    - named: No Name
 
 chest 1:
   super: chest
@@ -33,7 +50,6 @@ chest 3:
 
 erdrick:
   super: person
-  named: Erdrick
   living: false
   timeline: 0
 
@@ -44,7 +60,6 @@ hero:
 
 king loric:
   super: person
-  named: King Loric
   situations:
     - talking to the player:
         - when the quest begins:

@@ -482,7 +482,7 @@ map:
       zone06:
         encounters:  mob_magidrakee, mob_scorpion, mob_skeleton, mob_warlock, mob_wolf
       zone07:
-        encounters:  mod_skeleton, mob_warlock, mob_metal_scorpion, mob_wolf, mob_wolf
+        encounters:  mob_skeleton, mob_warlock, mob_metal_scorpion, mob_wolf, mob_wolf
       zone08:
         encounters:  mob_metal_scorpion, wraith, mob_wolflord, mob_wolflord, mob_goldman
       zone09:
